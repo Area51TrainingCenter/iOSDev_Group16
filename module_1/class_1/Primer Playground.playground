@@ -1,0 +1,229 @@
+//: Playground - noun: a place where people can play
+
+import UIKit
+
+//Tipos de Datos
+var texto:String = "Texto"
+var numeroEntero:Int = 10
+var numeroDecimal:Double = 15.5
+var si_o_no:Bool = true
+
+var texto_2 = "Texto"
+
+var array:Array = [1, 3, 5, 7]
+var dictionary:Dictionary = ["A":2, "B":3]
+
+array[1]
+dictionary["B"]
+
+//Variables
+var numeroVariable = 5
+numeroVariable = 20
+
+let numeroConstante = 10
+//numeroConstante = 30
+
+//Manejo de textos
+var textoConNumeros = "El numero variable es \(numeroVariable)"
+var textoConNumeros2 = " y el numero constante es \(numeroConstante)"
+textoConNumeros + textoConNumeros2
+
+//Manejo de Arreglos y Diccionarios
+array[0]
+array.append(9)
+array.remove(at: 0)
+array[2] = 70
+array
+
+dictionary["A"]
+dictionary["A"] = 20
+dictionary
+
+//Optional y Required
+var varOptional:Int?
+varOptional
+
+varOptional = 10
+print(varOptional!)
+
+var varRequired:Int!
+varRequired
+
+varRequired = 20
+print(varRequired)
+
+//Condicionales
+var condicional = false
+
+if condicional == true {
+    "VERDADERO"
+}
+
+if condicional == true {
+    "VERDADERO"
+} else {
+    "FALSO"
+}
+
+var numMenor = 5
+var numMayor = 10
+
+if numMenor < numMayor {
+    "VERDADERO"
+}
+
+switch numMenor {
+case 1:
+    "ES UNO"
+case 5:
+    "ES CINCO"
+default:
+    "NO ES NI UNO NI CINCO"
+}
+
+var opcional:Int?
+opcional = 10
+
+if let requerido = opcional {
+    "TIENE UN VALOR \(requerido)"
+} else {
+    "NO TIENE UN VALOR"
+}
+
+//Repetitivas
+//Swift 2.0
+//for(var i = 0; i < 5; i++)
+
+//Swift 3.0
+for i in 0...5 {
+    i
+}
+
+for i in 0..<5 {
+    i
+}
+
+for item in array {
+    item
+}
+
+var maximo = 5
+var iterador = 0
+while iterador < maximo {
+    iterador
+    iterador += 2
+}
+
+var iteradorRepeat = 0
+repeat {
+    iteradorRepeat
+    iteradorRepeat += 1
+} while (iteradorRepeat < maximo)
+
+//X
+//Array: 10 numeros
+//Encontrar X
+var x:Int = 50
+var lista = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+for i in 0..<lista.count {
+    if lista[i] == x {
+        "Se encontro \(x) en la posicion \(i)"
+    }
+}
+
+var posicion:Int?
+for i in 0..<lista.count {
+    if lista[i] == x {
+        posicion = i
+    }
+}
+
+if let posicionExiste = posicion {
+    "Se encontro \(x) en la posicion \(posicionExiste)"
+} else {
+    "No se encontro \(x)"
+}
+
+//Texto A
+//Numero X
+//Texto B
+
+//Texto A
+//Si X es par => A + B
+//Si X es impar => A + X
+var textoA = "Numero impar: "
+var numeroX = 7
+var textoB = "Ninguno"
+
+if numeroX % 2 == 0 {
+    textoA = textoA + textoB
+} else {
+    textoA = textoA + "\(numeroX)"
+}
+
+//Objetos
+class Persona {
+    //Atributos
+    var edad:Int?
+    var nombre:String?
+    
+    //Metodos de Acceso
+    func getEdad() -> Int {
+        return edad!
+    }
+    
+    func setEdad(pEdad:Int) -> Void {
+        edad = pEdad
+    }
+    
+    func setNombre(pNombre:String) -> Void {
+        nombre = pNombre
+    }
+    
+    func getEdadYNombre() -> (Int, String) {
+        return (edad!, nombre!)
+    }
+    
+    //Eventos
+    func sumarEdad(numero:Int) -> Void {
+        edad = edad! + numero
+    }
+}
+
+var nuevaPersona = Persona()
+nuevaPersona.edad
+
+nuevaPersona.setEdad(pEdad: 10)
+nuevaPersona.edad
+
+nuevaPersona.setNombre(pNombre: "Nueva Persona")
+nuevaPersona.nombre
+
+nuevaPersona.getEdadYNombre()
+
+nuevaPersona.sumarEdad(numero: 5)
+nuevaPersona.edad
+
+
+//Parametro: X
+//Devuelva: Texto encontro o no encontro
+func buscarNumero(x:Int) -> String {
+    var lista = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+    var posicion:Int?
+    for i in 0..<lista.count {
+        if lista[i] == x {
+            posicion = i
+        }
+    }
+    
+    if let posicionExiste = posicion {
+        return "Se encontro \(x) en la posicion \(posicionExiste)"
+    } else {
+        return "No se encontro \(x)"
+    }
+}
+
+buscarNumero(x: 5)
+buscarNumero(x: 14)
